@@ -20,8 +20,8 @@ function Detail({ match }) {
   return (
     <>
       {loading === false ? (
-        <div style={{ backgroundColor: "#000", height: "100vh" }}>
-          <div style={{ backgroundColor: "#595959", height: 40 }}>
+        <div style={{ backgroundColor: "#000", height: "100%" }}>
+          <div style={{ backgroundColor: "#595959", height: "5vh" }}>
             <Link to="/">
               <p style={{ color: "#fff", margin: 0 }}>홈</p>
             </Link>
@@ -30,7 +30,7 @@ function Detail({ match }) {
             <img
               src={data.medium_cover_image}
               style={{
-                marginLeft: "250px",
+                margin: "10% 0 0 30%",
                 display: "block",
               }}
             />
@@ -48,10 +48,7 @@ function Detail({ match }) {
               평점 {data.rating} 상영시간 {data.runtime}분
             </p>
           </div>
-          <img
-            src={data.background_image}
-            style={{ marginTop: 100, marginTop: 30, height: "50vh", width: "50%" }}
-          />
+          <img src={data.background_image} style={{ height: "50vh", width: "50%" }} />
 
           <p
             style={{
@@ -76,7 +73,7 @@ function Detail({ match }) {
           })}
           <p style={{ color: "#fff" }}>언어 : {data.language}</p>
           <p style={{ color: "#fff" }}>다운로드 수 : {data.download_count}</p>
-          <p style={{ color: "#fff" }}>내용 : {data.description_full}</p>
+          <p style={{ color: "#fff", margin: 0 }}>내용 : {data.description_full}</p>
         </div>
       ) : (
         <div
