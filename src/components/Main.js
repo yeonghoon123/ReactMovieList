@@ -19,18 +19,33 @@ function Main() {
   return (
     <>
       <div style={{ backgroundColor: "#000000" }}>
-        {loading === false
-          ? data.map((item) => (
-              <div key={item.id} style={{ display: "inline-block" }}>
-                <Link to={"/Detail/" + item.id}>
-                  <img src={item.medium_cover_image} style={{ margin: 15 }} />
-                </Link>
-                <p style={{ textAlign: "center", color: "#ffffff" }}>
-                  {item.title.length > 15 ? item.title.slice(0, 15) + "..." : item.title}
-                </p>
-              </div>
-            ))
-          : "Loading Now..."}
+        {loading === true ? (
+          data.map((item) => (
+            <div key={item.id} style={{ display: "inline-block" }}>
+              <Link to={"/Detail/" + item.id}>
+                <img src={item.medium_cover_image} style={{ margin: 15 }} />
+              </Link>
+              <p style={{ textAlign: "center", color: "#ffffff" }}>
+                {item.title.length > 15 ? item.title.slice(0, 15) + "..." : item.title}
+              </p>
+            </div>
+          ))
+        ) : (
+          <div style={{ height: "100vh" }}>
+            <p
+              style={{
+                color: "#ffffff",
+                fontSize: 40,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: 0,
+              }}
+            >
+              영화 불러오는 중!!!
+            </p>
+          </div>
+        )}
       </div>
     </>
   );

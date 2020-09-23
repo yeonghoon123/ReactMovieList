@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import Main from "./components/Main";
 import Detail from "./components/Detail";
 
