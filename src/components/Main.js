@@ -31,9 +31,7 @@ function Main() {
                 <img src={item.medium_cover_image} style={{ margin: 15 }} />
               </Link>
               <p style={{ textAlign: "center", color: "#fff" }}>
-                {item.title.length > 15
-                  ? item.title.slice(0, 15) + "..."
-                  : item.title}
+                {item.title.length > 15 ? item.title.slice(0, 15) + "..." : item.title}
               </p>
             </div>
           ))
