@@ -8,14 +8,15 @@ function Main() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getData = async () => {
-    const datas = await getMovies();
+  const onePage = async (Page) => {
+    setLoading(true);
+    const datas = await getMovies(Page);
     setData(datas);
     setLoading(false);
   };
 
   useEffect(() => {
-    getData();
+    onePage(1);
   }, []);
   return (
     <>
@@ -33,7 +34,19 @@ function Main() {
       </div>
       <div style={{ backgroundColor: "#000" }}>
         {loading === false ? (
-          <MovieList data={data} />
+          <div>
+            <MovieList data={data} />
+            <div style={{ display: "flex" }}>
+              <button style={{}} onClick={() => onePage(1)}>
+                1
+              </button>
+              <button style={{}} onClick={() => onePage(2)}>
+                2
+              </button>
+              <button style={{}}>3</button>
+              <button style={{}}>4</button>
+            </div>
+          </div>
         ) : (
           <div
             style={{
@@ -56,7 +69,6 @@ function Main() {
           </div>
         )}
       </div>
-      <button>다음페이지</button>
     </>
   );
 }
