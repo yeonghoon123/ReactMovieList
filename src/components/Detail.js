@@ -32,12 +32,13 @@ function Detail({ match }) {
                 alt=""
                 style={{ margin: "0px 100px 20px 120px" }}
               />
-              <img src={data.background_image} style={{ display: "inline-block", marginTop: "30px" }} />
+              <img src={data.background_image} style={{ display: "inline-block", marginTop: "30px", width: "50%" }} />
               <div style={{ height: "auto" }}>
                 <p style={{ color: "#ffffff", fontSize: 30, fontWeight: 1000, margin: "30px 0 0 120px" }}>
                   {data.title} <span style={{ marginLeft: "20px", fontSize: 15 }}>출시연도 : {data.year}</span>
                   <span style={{ marginLeft: "20px", fontSize: 15 }}>상영시간 : {data.runtime} 분  </span>
                   <span style={{ marginLeft: "20px", fontSize: 15 }}>장르 : {data.genres[0]}</span>
+                  <span style={{ marginLeft: "20px", fontSize: 15 }}>평점 : {Number(data.rating)}</span>
                 </p>
                 {data.description_full.length != 0 ? (<p style={{ color: "#ffffff", margin: 0, fontSize: 18, fontWeight: 1000, margin: "30px 0 30px 120px" }}>
                   {data.description_full}

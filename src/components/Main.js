@@ -2,72 +2,60 @@ import React, { useState, useEffect } from "react";
 import "../body.css";
 import { getMovies } from "../Api";
 import { Link } from "react-router-dom";
-import MovieList from "./MovieList";
 
 function Main() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const onePage = async (Page) => {
-    setLoading(true);
-    const datas = await getMovies(Page);
+  const getData = async () => {
+    const datas = await getMovies();
     setData(datas);
     setLoading(false);
   };
 
   useEffect(() => {
-    onePage(1);
+    getData();
   }, []);
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#595959",
-          height: "5vh",
-          position: "sticky",
-          top: "0%",
-        }}
-      >
+      <div style={{ backgroundColor: "#595959", height: 40 }}>
         <Link to="/">
           <p style={{ color: "#fff", margin: 0 }}>홈</p>
         </Link>
       </div>
       <div style={{ backgroundColor: "#000" }}>
         {loading === false ? (
-          <div>
-            <MovieList data={data} />
-            <div style={{ display: "flex" }}>
-              <button style={{}} onClick={() => onePage(1)}>
-                1
-              </button>
-              <button style={{}} onClick={() => onePage(2)}>
-                2
-              </button>
-              <button style={{}}>3</button>
-              <button style={{}}>4</button>
+          data.map((item) => (
+            <div key={item.id} style={{ display: "inline-block" }}>
+              <Link to={"/Detail/" + item.id}>
+                <img src={item.medium_cover_image} style={{ margin: 15 }} />
+              </Link>
+              <p style={{ textAlign: "center", color: "#fff" }}>
+                {item.title.length > 15 ? item.title.slice(0, 15) + "..." : item.title}
+              </p>
             </div>
-          </div>
+          ))
         ) : (
-          <div
-            style={{
-              backgroundColor: "#000000",
-              height: "100vh",
-            }}
-          >
-            <p
+            <div
               style={{
-                color: "#ffffff",
-                fontSize: 30,
-                margin: 0,
-                display: "flex",
-                justifyContent: "center",
-                paddingTop: "45vh",
+                backgroundColor: "#000000",
+                height: "100vh",
               }}
             >
-              loading now....
+              <p
+                style={{
+                  color: "#ffffff",
+                  fontSize: 30,
+                  margin: 0,
+                  display: "flex",
+                  justifyContent: "center",
+                  paddingTop: "45vh",
+                }}
+              >
+                loading now....
             </p>
-          </div>
-        )}
+            </div>
+          )}
       </div>
     </>
   );
