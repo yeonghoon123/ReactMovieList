@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
+import "../body.css";
 import { getDetail } from "../Api";
 import { Link } from "react-router-dom";
-import "../body.css";
 
 function Detail({ match }) {
-  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [data, setData] = useState([]);
   const getData = async () => {
-    const datas = await getDetail(Number(match.params.id));
+    const datas = await getDetail(match.params.id);
     setData(datas);
     setLoading(false);
   };
@@ -20,82 +19,39 @@ function Detail({ match }) {
   return (
     <>
       {loading === false ? (
-        <div style={{ backgroundColor: "#000", height: "100%" }}>
-          <div style={{ backgroundColor: "#595959", height: "5vh" }}>
-            <Link to="/">
-              <p style={{ color: "#fff", margin: 0 }}>홈</p>
-            </Link>
+        <>
+          <div style={{ backgroundColor: "#000000", height: "auto" }}>
+            <div style={{ backgroundColor: "#595959", height: "5vh", width: "100%" }}>
+              <Link to="/">
+                <p style={{ color: "#fff", margin: 0 }}>홈</p>
+              </Link>
+            </div>
+            <div style={{ width: "1440px", height: "auto", margin: "0 auto" }}>
+              <img
+                src={data.medium_cover_image}
+                alt=""
+                style={{ margin: "0px 100px 20px 120px" }}
+              />
+              <img src={data.background_image} style={{ display: "inline-block", marginTop: "30px" }} />
+              <div style={{ height: "auto" }}>
+                <p style={{ color: "#ffffff", fontSize: 30, fontWeight: 1000, margin: "30px 0 0 120px" }}>
+                  {data.title} <span style={{ marginLeft: "20px", fontSize: 15 }}>출시연도 : {data.year}</span>
+                  <span style={{ marginLeft: "20px", fontSize: 15 }}>상영시간 : {data.runtime} 분  </span>
+                  <span style={{ marginLeft: "20px", fontSize: 15 }}>장르 : {data.genres[0]}</span>
+                </p>
+                {data.description_full.length != 0 ? (<p style={{ color: "#ffffff", margin: 0, fontSize: 18, fontWeight: 1000, margin: "30px 0 30px 120px" }}>
+                  {data.description_full}
+                </p>
+                ) : (<p style={{ color: "#ffffff", margin: 0, fontSize: 20, fontWeight: 1000, margin: "30px 0 30px 120px" }}>줄거리가 없습니다.</p>)}
+              </div>
+            </div>
           </div>
-          <div style={{ width: "80vh", textAlign: "center", display: "inline-block" }}>
-            <img
-              src={data.medium_cover_image}
-              style={{
-                margin: "10% 0 0 30%",
-                display: "block",
-              }}
-            />
-            <p
-              style={{
-                fontWeight: 1000,
-                fontSize: 30,
-                justifyContent: "center",
-                color: "#fff",
-              }}
-            >
-              {data.title_long}
-            </p>
-            <p style={{ color: "#fff", justifyContent: "center" }}>
-              평점 {data.rating} 상영시간 {data.runtime}분
-            </p>
-          </div>
-          <img src={data.background_image} style={{ height: "50vh", width: "50%" }} />
 
-          <p
-            style={{
-              display: "flex",
-              color: "#fff",
-              marginBottom: 0,
-            }}
-          >
-            장르
-          </p>
-          {data.genres.map((item) => {
-            return (
-              <p
-                style={{
-                  color: "#fff",
-                  marginBottom: 0,
-                }}
-              >
-                {item}
-              </p>
-            );
-          })}
-          <p style={{ color: "#fff" }}>언어 : {data.language}</p>
-          <p style={{ color: "#fff" }}>다운로드 수 : {data.download_count}</p>
-          <p style={{ color: "#fff", margin: 0 }}>내용 : {data.description_full}</p>
-        </div>
+        </>
       ) : (
-        <div
-          style={{
-            backgroundColor: "#000000",
-            height: "100vh",
-          }}
-        >
-          <p
-            style={{
-              color: "#ffffff",
-              fontSize: 30,
-              margin: 0,
-              display: "flex",
-              justifyContent: "center",
-              paddingTop: "45vh",
-            }}
-          >
-            loading now....
-          </p>
-        </div>
-      )}
+          "loading..."
+        )
+      }
     </>
   );
 }
