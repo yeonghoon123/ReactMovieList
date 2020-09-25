@@ -30,7 +30,7 @@ function Detail({ match }) {
       return "★★☆☆☆"
     }
     else if (4 < rate && rate <= 6) {
-      return "★★★☆☆☆"
+      return "★★★☆☆"
     }
     else if (6 < rate && rate <= 8) {
       return "★★★★☆"
