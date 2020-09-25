@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../css/body.css";
 import "../css/main.css";
 import { getMovies } from "../Api";
 import { Link } from "react-router-dom";
@@ -21,34 +20,36 @@ function Main() {
   }, []);
   return (
     <>
-      <div className="TopBar">
-        <Link to="/">
-          <p style={{ color: "#fff", margin: 0 }}>홈</p>
-        </Link>
-        <input />
-      </div>
       <div style={{ backgroundColor: "#000" }}>
         {loading === false ? (
           <div>
+            <div className="TopBar">
+              <Link to="/">
+                <p style={{ color: "#fff", margin: 0 }}>홈</p>
+              </Link>
+              <input />
+            </div>
             <MovieList data={data} />
             {Array(30)
               .fill()
               .map((x, index) => (
                 <div style={{ display: "inline-block" }}>
-                  <button onClick={() => onePage(index + 1)}>{index + 1}</button>
+                  <button className="pagebtn" onClick={() => onePage(index + 1)}>
+                    {index + 1}
+                  </button>
                 </div>
               ))}
           </div>
         ) : (
-            <div
-              style={{
-                backgroundColor: "#000000",
-                height: "100vh",
-              }}
-            >
-              <p className="lodingP">loading now....</p>
-            </div>
-          )}
+          <div
+            style={{
+              backgroundColor: "#000",
+              height: "100vh",
+            }}
+          >
+            <p className="lodingP">loading now....</p>
+          </div>
+        )}
       </div>
     </>
   );

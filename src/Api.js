@@ -23,7 +23,11 @@ export const getDetail = async (movieID) => {
     .get(
       `https://cors-anywhere.herokuapp.com/https://yts.mx/api/v2/movie_details.json?movie_id=${movieID}`,
       {
-        headers: { "Access-Control-Allow-Origin": "*" },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          origin: "",
+          "x-requested-with": "",
+        },
       }
     )
     .then((res) => res.data.data.movie);

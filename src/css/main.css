@@ -1,5 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .TopBar {
-  background-color: #595959;
+  background-color: #696969;
   height: 5vh;
   position: sticky;
   top: 0%;
@@ -9,10 +14,20 @@
 }
 
 .lodingP {
-  color: #ffffff;
+  color: #fff;
   font-size: 30px;
   margin: 0;
   display: flex;
   justify-content: center;
   padding-top: 45vh;
+}
+
+.pagebtn {
+  background-color: transparent;
+  color: red;
+  border: none;
+}
+.pagebtn:hover {
+  cursor: pointer;
+  background-color: #696969;
 }
