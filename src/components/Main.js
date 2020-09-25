@@ -26,11 +26,15 @@ function Main() {
           height: "5vh",
           position: "sticky",
           top: "0%",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
         }}
       >
         <Link to="/">
           <p style={{ color: "#fff", margin: 0 }}>홈</p>
         </Link>
+        <input />
       </div>
       <div style={{ backgroundColor: "#000" }}>
         {loading === false ? (
@@ -39,8 +43,8 @@ function Main() {
             {Array(30)
               .fill()
               .map((x, index) => (
-                <div style={{ display: "flex" }}>
-                  <button style={{}} onClick={() => onePage(index + 1)}>
+                <div style={{ display: "block" }}>
+                  <button style={styles.MouseOver} onClick={() => onePage(index + 1)}>
                     {index + 1}
                   </button>
                 </div>
