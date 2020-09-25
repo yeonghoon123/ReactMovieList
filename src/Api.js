@@ -7,7 +7,11 @@ export const getMovies = async (PageNumber) => {
         PageNumber
       )}`,
       {
-        headers: { "Access-Control-Allow-Origin": "*" },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          origin: "",
+          "x-requested-with": "",
+        },
       }
     )
     .then((res) => res.data.data.movies);

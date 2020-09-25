@@ -36,16 +36,15 @@ function Main() {
         {loading === false ? (
           <div>
             <MovieList data={data} />
-            <div style={{ display: "flex" }}>
-              <button style={{}} onClick={() => onePage(1)}>
-                1
-              </button>
-              <button style={{}} onClick={() => onePage(2)}>
-                2
-              </button>
-              <button style={{}}>3</button>
-              <button style={{}}>4</button>
-            </div>
+            {Array(30)
+              .fill()
+              .map((x, index) => (
+                <div style={{ display: "flex" }}>
+                  <button style={{}} onClick={() => onePage(index + 1)}>
+                    {index + 1}
+                  </button>
+                </div>
+              ))}
           </div>
         ) : (
           <div
