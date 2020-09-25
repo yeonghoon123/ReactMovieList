@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../body.css";
+import "../css/body.css";
+import "../css/main.css";
 import { getMovies } from "../Api";
 import { Link } from "react-router-dom";
 import MovieList from "./MovieList";
@@ -20,17 +21,7 @@ function Main() {
   }, []);
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#595959",
-          height: "5vh",
-          position: "sticky",
-          top: "0%",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
+      <div className="TopBar">
         <Link to="/">
           <p style={{ color: "#fff", margin: 0 }}>홈</p>
         </Link>
@@ -44,9 +35,7 @@ function Main() {
               .fill()
               .map((x, index) => (
                 <div style={{ display: "block" }}>
-                  <button style={styles.MouseOver} onClick={() => onePage(index + 1)}>
-                    {index + 1}
-                  </button>
+                  <button onClick={() => onePage(index + 1)}>{index + 1}</button>
                 </div>
               ))}
           </div>
@@ -57,18 +46,7 @@ function Main() {
               height: "100vh",
             }}
           >
-            <p
-              style={{
-                color: "#ffffff",
-                fontSize: 30,
-                margin: 0,
-                display: "flex",
-                justifyContent: "center",
-                paddingTop: "45vh",
-              }}
-            >
-              loading now....
-            </p>
+            <p className="lodingP">loading now....</p>
           </div>
         )}
       </div>
