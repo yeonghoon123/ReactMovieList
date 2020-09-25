@@ -40,15 +40,15 @@ function Main() {
               ))}
           </div>
         ) : (
-          <div
-            style={{
-              backgroundColor: "#000000",
-              height: "100vh",
-            }}
-          >
-            <p className="lodingP">loading now....</p>
-          </div>
-        )}
+            <div
+              style={{
+                backgroundColor: "#000000",
+                height: "100vh",
+              }}
+            >
+              <p className="lodingP">loading now....</p>
+            </div>
+          )}
       </div>
     </>
   );

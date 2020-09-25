@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../body.css";
+import "../css/body.css";
 import { getDetail } from "../Api";
 import { Link } from "react-router-dom";
 
