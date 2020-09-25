@@ -16,6 +16,20 @@ function Detail({ match }) {
     getData();
   }, []);
 
+  let star
+
+  switch (Math.round(data.rating)) {
+    case 1, 2: star = "★☆☆☆☆"
+      break;
+    case 3, 4: star = "★★☆☆☆"
+      break;
+    case 5, 6: star = "★★★☆☆"
+      break;
+    case 7, 8: star = "★★★★☆"
+      break;
+    case 9, 10: star = "★★★★★"
+      break;
+  }
   return (
     <>
       {loading === false ? (
@@ -32,13 +46,17 @@ function Detail({ match }) {
                 alt=""
                 style={{ margin: "0px 100px 20px 120px" }}
               />
-              <img src={data.background_image} style={{ display: "inline-block", marginTop: "30px", width: "50%" }} />
+              <img src={data.background_image} style={{ display: "inline-block", marginTop: "30px", width: "900px", height: "400px" }} />
               <div style={{ height: "auto" }}>
                 <p style={{ color: "#ffffff", fontSize: 30, fontWeight: 1000, margin: "30px 0 0 120px" }}>
                   {data.title} <span style={{ marginLeft: "20px", fontSize: 15 }}>출시연도 : {data.year}</span>
                   <span style={{ marginLeft: "20px", fontSize: 15 }}>상영시간 : {data.runtime} 분  </span>
                   <span style={{ marginLeft: "20px", fontSize: 15 }}>장르 : {data.genres[0]}</span>
-                  <span style={{ marginLeft: "20px", fontSize: 15 }}>평점 : {Number(data.rating)}</span>
+                  <span style={{ marginLeft: "20px", fontSize: 15 }}>평점 : {Math.round(data.rating)}
+
+                    <span style={{ marginLeft: "10px", fontSize: 20, color: "#CD1039", alignItems: "center" }}>{star}</span>
+
+                  </span>
                 </p>
                 {data.description_full.length != 0 ? (<p style={{ color: "#ffffff", margin: 0, fontSize: 18, fontWeight: 1000, margin: "30px 0 30px 120px" }}>
                   {data.description_full}
