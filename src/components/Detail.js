@@ -68,7 +68,7 @@ function Detail({ match }) {
 
                   </span>
                 </p>
-                {data.description_full.length != 0 ? (<p style={{ color: "#ffffff", margin: 0, fontSize: 18, fontWeight: 1000, margin: "30px 0 30px 120px" }}>
+                {data.description_full.length !== 0 ? (<p style={{ color: "#ffffff", margin: 0, fontSize: 18, fontWeight: 1000, margin: "30px 0 30px 120px" }}>
                   {data.description_full}
                 </p>
                 ) : (<p style={{ color: "#ffffff", margin: 0, fontSize: 20, fontWeight: 1000, margin: "30px 0 30px 120px" }}>줄거리가 없습니다.</p>)}
