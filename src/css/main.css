@@ -13,13 +13,17 @@ body {
   align-items: center;
 }
 
-.lodingP {
+.loadingDiv {
+  background-color: #1a1a1a;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingP {
   color: #fff;
   font-size: 30px;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  padding-top: 45vh;
 }
 
 .pagebtn {

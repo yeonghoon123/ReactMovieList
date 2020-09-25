@@ -20,7 +20,7 @@ function Main() {
   }, []);
   return (
     <>
-      <div style={{ backgroundColor: "#000" }}>
+      <div style={{ backgroundColor: "#1a1a1a" }}>
         {loading === false ? (
           <div>
             <div className="TopBar">
@@ -33,7 +33,7 @@ function Main() {
             {Array(30)
               .fill()
               .map((x, index) => (
-                <div style={{ display: "inline-block" }}>
+                <div style={{ display: "block" }}>
                   <button className="pagebtn" onClick={() => onePage(index + 1)}>
                     {index + 1}
                   </button>
@@ -41,13 +41,8 @@ function Main() {
               ))}
           </div>
         ) : (
-          <div
-            style={{
-              backgroundColor: "#000",
-              height: "100vh",
-            }}
-          >
-            <p className="lodingP">loading now....</p>
+          <div className="loadingDiv">
+            <p className="loadingP">loading now....</p>
           </div>
         )}
       </div>
