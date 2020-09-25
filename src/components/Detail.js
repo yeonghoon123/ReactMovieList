@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 function Detail({ match }) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+
+
   const getData = async () => {
     const datas = await getDetail(match.params.id);
+
     setData(datas);
+
     setLoading(false);
   };
 
@@ -16,20 +20,26 @@ function Detail({ match }) {
     getData();
   }, []);
 
-  let star
-
-  switch (Math.round(data.rating)) {
-    case 1, 2: star = "★☆☆☆☆"
-      break;
-    case 3, 4: star = "★★☆☆☆"
-      break;
-    case 5, 6: star = "★★★☆☆"
-      break;
-    case 7, 8: star = "★★★★☆"
-      break;
-    case 9, 10: star = "★★★★★"
-      break;
+  function rate(rate) {
+    console.log(rate)
+    if (rate === 0) {
+      return "☆☆☆☆☆"
+    } else if (0 < rate && rate <= 2) {
+      return "★☆☆☆☆"
+    } else if (2 < rate && rate <= 4) {
+      return "★★☆☆☆"
+    }
+    else if (4 < rate && rate <= 6) {
+      return "★★★☆☆☆"
+    }
+    else if (6 < rate && rate <= 8) {
+      return "★★★★☆"
+    }
+    else if (8 < rate && rate <= 10) {
+      return "★★★★★"
+    }
   }
+
   return (
     <>
       {loading === false ? (
@@ -54,7 +64,7 @@ function Detail({ match }) {
                   <span style={{ marginLeft: "20px", fontSize: 15 }}>장르 : {data.genres[0]}</span>
                   <span style={{ marginLeft: "20px", fontSize: 15 }}>평점 : {Math.round(data.rating)}
 
-                    <span style={{ marginLeft: "10px", fontSize: 20, color: "#CD1039", alignItems: "center" }}>{star}</span>
+                    <span style={{ marginLeft: "10px", fontSize: 20, color: "#CD1039", alignItems: "center" }}>{rate(Math.round(data.rating))}</span>
 
                   </span>
                 </p>

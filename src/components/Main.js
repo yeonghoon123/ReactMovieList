@@ -34,7 +34,7 @@ function Main() {
             {Array(30)
               .fill()
               .map((x, index) => (
-                <div style={{ display: "block" }}>
+                <div style={{ display: "inline-block" }}>
                   <button onClick={() => onePage(index + 1)}>{index + 1}</button>
                 </div>
               ))}
