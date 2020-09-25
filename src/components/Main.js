@@ -31,13 +31,15 @@ function Main() {
         {loading === false ? (
           <div>
             <MovieList data={data} />
-            {Array(30)
-              .fill()
-              .map((x, index) => (
-                <div style={{ display: "inline-block" }}>
-                  <button onClick={() => onePage(index + 1)}>{index + 1}</button>
-                </div>
-              ))}
+            <div style={{ textAlign: "center" }}>
+              {Array(30)
+                .fill()
+                .map((x, index) => (
+                  <div style={{ display: "inline-block" }}>
+                    <button style={{ background: "none", color: "white", border: "none", cursor: "pointer", marginRight: "5px" }} onClick={() => onePage(index + 1)}>{index + 1}</button>
+                  </div>
+                ))}
+            </div>
           </div>
         ) : (
             <div
