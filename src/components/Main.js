@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../css/main.css";
-import { getMovies } from "../Api";
 import { Link } from "react-router-dom";
-import MovieList from "./MovieList";
+import { getMovies } from "../Api";
+import Movies from "./Movies";
 
-function Main() {
+export default function Main() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [filtered, setFiltered] = useState([]);
 
   const onePage = async (Page) => {
     setLoading(true);
@@ -18,28 +20,53 @@ function Main() {
   useEffect(() => {
     onePage(1);
   }, []);
+
+  // 검색 기능
+  const Searching = (e) => {
+    setSearch(e.target.value);
+    const SearchData = data.filter((item) => {
+      return item.title.indexOf(e.target.value) > -1;
+    });
+    setFiltered(SearchData);
+  };
+
   return (
     <>
       <div style={{ backgroundColor: "#1a1a1a" }}>
         {loading === false ? (
-          <div>
-            <div className="TopBar">
-              <Link to="/">
-                <p style={{ color: "#fff", margin: 0 }}>홈</p>
-              </Link>
-              <input />
-            </div>
-            <MovieList data={data} />
-            {Array(30)
-              .fill()
-              .map((x, index) => (
-                <div style={{ display: "block" }}>
-                  <button className="pagebtn" onClick={() => onePage(index + 1)}>
-                    {index + 1}
-                  </button>
+          filtered.length === 0 ? (
+            search.length === 0 ? (
+              <Movies
+                search={search}
+                Searching={Searching}
+                data={data}
+                onePage={onePage}
+              />
+            ) : (
+              <>
+                <div className="TopBar">
+                  <Link to="/">
+                    <p style={{ color: "#fff", margin: 0 }}>홈</p>
+                  </Link>
+                  <input
+                    placeholder="영화 제목을 입력해주세요!"
+                    value={search}
+                    onChange={(e) => Searching(e)}
+                  />
                 </div>
-              ))}
-          </div>
+                <div className="loadingDiv">
+                  <p className="loadingP">No Searching!!</p>
+                </div>
+              </>
+            )
+          ) : (
+            <Movies
+              search={search}
+              Searching={Searching}
+              data={filtered}
+              onePage={onePage}
+            />
+          )
         ) : (
           <div className="loadingDiv">
             <p className="loadingP">loading now....</p>
@@ -49,5 +76,3 @@ function Main() {
     </>
   );
 }
-
-export default Main;

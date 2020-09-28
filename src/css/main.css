@@ -3,6 +3,7 @@ body {
   padding: 0;
 }
 
+/* 상단 바 스타일 */
 .TopBar {
   background-color: #696969;
   height: 5vh;
@@ -13,6 +14,7 @@ body {
   align-items: center;
 }
 
+/* 로딩중 화면 스타일 */
 .loadingDiv {
   background-color: #1a1a1a;
   height: 100vh;
@@ -20,12 +22,14 @@ body {
   justify-content: center;
   align-items: center;
 }
+/* 로딩중 글자 스타일 */
 .loadingP {
   color: #fff;
   font-size: 30px;
   margin: 0;
 }
 
+/* 영화 리스트 페이지 이동 버튼 스타일 */
 .pagebtn {
   background-color: transparent;
   color: red;

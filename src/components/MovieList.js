@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// 영화 리스트
+
 function MovieList({ data }) {
   return (
     <>
