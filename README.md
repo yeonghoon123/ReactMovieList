@@ -24,4 +24,4 @@
 
 <img src="https://github.com/MSeoJun/React_movie_page/blob/master/images/MovieSearch.PNG?raw=true">
 
-영화 이름을 입력하면 해당되는 영화가 보여짐.(아직까지는 영화제목이 완벽하게 일치해야 보여짐.)
+영화 이름을 입력하면 해당되는 영화가 보여짐. (아직까지는 영화제목이 완벽하게 일치해야 보여짐.)
