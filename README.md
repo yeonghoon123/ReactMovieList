@@ -8,7 +8,7 @@
 
 ## 영화 디테일 페이지
 
-<img src="./images/MovieDetail.png">
+<img src="https://github.com/MSeoJun/React_movie_page/blob/master/images/MovieDetail.PNG?raw=true">
 
 ---
 
