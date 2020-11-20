@@ -2,7 +2,7 @@
 
 ## 영화 메인 페이지
 
-<img src="./images/MovieMain.png">
+<img src="https://github.com/MSeoJun/React_movie_page/blob/master/images/MovieMain.PNG?raw=true">
 
 ---
 
