@@ -14,7 +14,7 @@
 
 ## 영화 페이지
 
-<img src="./images/MovieNumber.png">
+<img src="https://github.com/MSeoJun/React_movie_page/blob/master/images/MovieNumber.PNG?raw=true">
 
 1페이지부터 30페이지까지 각각 다른 영화들이 보여짐.
 
