@@ -1,5 +1,7 @@
 # React로 영화 소개 페이지 만들어 보기.
 
+Yts.mx에서 제공 하는 영화 데이터 api를 가지고 와서 React를 사용해 영화 차트 페이지를 만들었다.
+
 ## 영화 메인 페이지
 
 <img src="https://github.com/MSeoJun/React_movie_page/blob/master/images/MovieMain.PNG?raw=true">
